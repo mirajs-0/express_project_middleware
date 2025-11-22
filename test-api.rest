@@ -1,79 +1,21 @@
-### REST Client Tests for Express MVC App
-### Base URL for API
-@baseUrl = http://localhost:3000/api/v1
+### POST a new cat with file upload
+POST http://localhost:3000/api/cat
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 
-### Test 1: GET all cats (initial state - should show Frank and Mittens)
-GET {{baseUrl}}/cat
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="title"
 
-### Test 2: POST - Add a new cat (Whiskers)
-POST {{baseUrl}}/cat
-Content-Type: application/json
+Fluffy
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="user_id"
 
-{
-  "cat_name": "Whiskers",
-  "weight": 9,
-  "owner": 3609,
-  "filename": "whiskers_pic_001",
-  "birthdate": "2022-05-15"
-}
+1
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="cat.jpg"
+Content-Type: image/jpeg
 
-### Test 3: GET all cats again (should now show 3 cats including Whiskers)
-GET {{baseUrl}}/cat
+< ./cat.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
 
-### Test 4: GET specific cat by ID (Frank - ID: 9592)
-GET {{baseUrl}}/cat/9592
-
-### Test 5: GET specific cat by ID (Mittens - ID: 9590)
-GET {{baseUrl}}/cat/9590
-
-### Test 6: GET non-existent cat (should return 404 error)
-GET {{baseUrl}}/cat/99999
-
-### Test 7: PUT - Update cat (hard coded response)
-PUT {{baseUrl}}/cat/9592
-Content-Type: application/json
-
-{
-  "cat_name": "Frank Updated"
-}
-
-### Test 8: DELETE - Delete cat (hard coded response)
-DELETE {{baseUrl}}/cat/9592
-
-### Test 9: GET all users (should show John, Jane, and Bob)
-GET {{baseUrl}}/user
-
-### Test 10: POST - Add a new user (Alice)
-POST {{baseUrl}}/user
-Content-Type: application/json
-
-{
-  "name": "Alice Wonder",
-  "username": "alicew",
-  "email": "alice@metropolia.fi",
-  "role": "user",
-  "password": "secure_password123"
-}
-
-### Test 11: GET all users again (should now show 4 users including Alice)
-GET {{baseUrl}}/user
-
-### Test 12: GET specific user by ID (John Doe - ID: 3609)
-GET {{baseUrl}}/user/3609
-
-### Test 13: GET specific user by ID (Jane Smith - ID: 3610)
-GET {{baseUrl}}/user/3610
-
-### Test 14: GET non-existent user (should return 404 error)
-GET {{baseUrl}}/user/99999
-
-### Test 15: PUT - Update user (hard coded response)
-PUT {{baseUrl}}/user/3609
-Content-Type: application/json
-
-{
-  "name": "John Doe Updated"
-}
-
-### Test 16: DELETE - Delete user (hard coded response)
-DELETE {{baseUrl}}/user/3609
+### GET all cats
+GET http://localhost:3000/api/cat
