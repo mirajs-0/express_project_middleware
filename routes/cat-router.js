@@ -1,6 +1,7 @@
 import express from "express";
 import multer from "multer";
 import { postCat, getCats, getCat } from "../controllers/cat-controller.js";
+import { createThumbnail } from "../src/middlewares.js";
 
 const router = express.Router();
 
@@ -14,7 +15,7 @@ router.get("/", getCats);
 router.get("/:id", getCat);
 
 // POST new cat with file upload
-// upload.single('file') means expect ONE file field named 'file'
-router.post("/", upload.single("file"), postCat);
+// Middleware chain: upload.single('file') → createThumbnail → postCat
+router.post("/", upload.single("file"), createThumbnail, postCat);
 
 export default router;
