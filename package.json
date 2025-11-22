@@ -4,16 +4,26 @@
   "description": "Express MVC application",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.11"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mirajs-0/express_project_middleware.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mirajs-0/express_project_middleware/issues"
+  },
+  "homepage": "https://github.com/mirajs-0/express_project_middleware#readme"
 }

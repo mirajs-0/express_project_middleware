@@ -1,11 +1,12 @@
 import express from "express";
-import api from "./api/index.js";
+import catRouter from "../routes/cat-router.js";
 
 const app = express();
 
+// Built-in middleware for parsing JSON
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.use("/api/v1", api);
+// Routes
+app.use("/api/cat", catRouter);
 
 export default app;
