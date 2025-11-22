@@ -1,17 +1,19 @@
 {
-  "name": "javascript",
+  "name": "express_project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Express MVC application",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  },
   "devDependencies": {
-    "@eslint/js": "^9.37.0",
-    "eslint": "^9.37.0",
-    "globals": "^16.4.0"
+    "nodemon": "^3.1.11"
   }
 }
